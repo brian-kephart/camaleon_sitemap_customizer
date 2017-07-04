@@ -1,0 +1,14 @@
+{
+  "title": "Camaleon Sitemap Customizer",
+  "descr": "Alter the auto-generated sitemap in Camaleon CMS",
+  "key": "camaleon_sitemap_customizer",
+  "helpers": [
+    "Plugins::CamaleonSitemapCustomizer::MainHelper"
+  ],
+  "hooks": {
+    "on_active": ["camaleon_sitemap_customizer_on_active"],
+    "on_inactive": ["camaleon_sitemap_customizer_on_inactive"],
+    "plugin_options": ["camaleon_sitemap_customizer_on_plugin_options"],
+    "on_render_sitemap": ["customize_sitemap"]
+  }
+}
