@@ -19,17 +19,29 @@
     <div class="panel-body">
         <div class="alert alert-info">
           Camaleon CMS automatically generates a sitemap. Select the content types you wish to <b>exclude</b> from this sitemap.
-          <br>The sitemap will not include:<br>
-          <ul>
-            <li>Post pages for individual posts of selected types</li>
-            <li>Post Type pages for listing posts of selected types</li>
-            <li>Category pages for listing posts within a category of selected types</li>
-          </ul>
         </div>
         <%= form_tag(url_for(action: :save_settings), id: 'camaleon_sitemap_customizer_form', class: 'validate') do %>
-            <div class="form-group">
-                <label>Content Types to exclude</label>
+        <div class="form-group">
+            <label>Content Types to exclude completely</label>
                 <%= select_tag("options[skip_post_types]", options_from_collection_for_select(current_site.post_types.decorate, "id", "the_title", @plugin.get_option('skip_post_types')), class: "form-control select", multiple: true, "data-live-search"=>"true") %>
+            </div>
+            <%= render partial: "camaleon_cms/admin/settings/custom_fields/render", locals: {record: @plugin, field_groups: @plugin.get_field_groups} %>
+            <div class="form-group">
+                <label>Content Types to exclude (list pages only)</label>
+                <%= select_tag("options[skip_post_list_types]", options_from_collection_for_select(current_site.post_types.decorate, "id", "the_title", @plugin.get_option('skip_post_list_types')), class: "form-control select", multiple: true, "data-live-search"=>"true") %>
+            </div>
+            <%= render partial: "camaleon_cms/admin/settings/custom_fields/render", locals: {record: @plugin, field_groups: @plugin.get_field_groups} %>
+            <div class="form-group">
+                <label>Categories to exclude (list pages only)</label>
+                <%= select_tag("options[skip_category_list_types]", options_from_collection_for_select(current_site.the_full_categories.decorate, "id", "the_title", @plugin.get_option('skip_category_list_types')), class: "form-control select", multiple: true, "data-live-search"=>"true") %>
+            </div>
+            <div class="form-group">
+                <label>Exclude tags?</label>
+                <%= check_box_tag("options[skip_tags]", 1, @plugin.get_option('skip_tags'), style: 'display: block;') %>
+            </div>
+            <div class="form-group">
+                <label>Exclude redundant home page url? (ex. – remove www.mysite.com/home if this renders the same post as www.mysite.com)</label>
+                <%= check_box_tag("options[skip_home]", 1, @plugin.get_option('skip_home'), style: 'display: block;') %>
             </div>
             <%= render partial: "camaleon_cms/admin/settings/custom_fields/render", locals: {record: @plugin, field_groups: @plugin.get_field_groups} %>
             <div class="form-group text-right">
