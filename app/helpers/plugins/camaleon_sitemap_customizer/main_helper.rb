@@ -19,7 +19,7 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
   def customize_sitemap(r)
 
     # completely excluded content types
-    r[:skip_posttype_ids] += current_plugin.get_option('skip_post_types').map(&:to_i)
+    r[:skip_posttype_ids] += current_plugin.get_option('skip_post_types').map(&:to_i) rescue nil
     r[:skip_posttype_ids].each do |ptype|
       # leave out post pages within content type
       current_site.the_posts(ptype).each do |post|
@@ -32,8 +32,8 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
     end
 
     # excluded list pages
-    r[:skip_posttype_ids] += current_plugin.get_option('skip_post_list_types')    .map(&:to_i)
-    r[:skip_cat_ids]      += current_plugin.get_option('skip_category_list_types').map(&:to_i)
+    r[:skip_posttype_ids] += current_plugin.get_option('skip_post_list_types')    .map(&:to_i) rescue nil
+    r[:skip_cat_ids]      += current_plugin.get_option('skip_category_list_types').map(&:to_i) rescue nil
     r[:skip_tag_ids]      += current_site.the_tags.map(&:id)   if current_plugin.get_option('skip_tags')
     r[:skip_post_ids]     += [@_site_options[:home_page].to_i] if current_plugin.get_option('skip_home')
   end
