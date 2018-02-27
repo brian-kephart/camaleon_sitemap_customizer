@@ -36,5 +36,19 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
     r[:skip_cat_ids]      += current_plugin.get_option('skip_category_list_types').map(&:to_i) rescue nil
     r[:skip_tag_ids]      += current_site.the_tags.map(&:id)   if current_plugin.get_option('skip_tags')
     r[:skip_post_ids]     += [@_site_options[:home_page].to_i] if current_plugin.get_option('skip_home')
+    r[:skip_post_ids]     += current_site.the_posts.select { |post| post.get_option('hide_in_sitemap').present? } .map(&:id)
+  end
+
+  def camaleon_sitemap_customizer_form(args)
+    args[:extra_settings] << "
+      <div class='form-group'>
+        <label for='options_hide_in_sitemap' class='control-label'>#{cama_t('hide_in_sitemap')}?</label>
+        <input type='checkbox' name='options[hide_in_sitemap]' id='options_hide_in_sitemap' value='true' #{'checked' if args[:post].get_option('hide_in_sitemap').present?}>
+      </div>
+    "
+  end
+
+  def camaleon_sitemap_customizer_save(args)
+    params[:options]['hide_in_sitemap'] ||= nil
   end
 end
