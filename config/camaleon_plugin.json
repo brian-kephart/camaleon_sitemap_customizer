@@ -8,7 +8,7 @@
   "hooks": {
     "new_post":["camaleon_sitemap_customizer_form"],
     "edit_post":["camaleon_sitemap_customizer_form"],
-    "update_post": ["camaleon_sitemap_customizer_save"],
+    "updated_post": ["camaleon_sitemap_customizer_save"],
     "on_active": ["camaleon_sitemap_customizer_on_active"],
     "on_inactive": ["camaleon_sitemap_customizer_on_inactive"],
     "plugin_options": ["camaleon_sitemap_customizer_on_plugin_options"],

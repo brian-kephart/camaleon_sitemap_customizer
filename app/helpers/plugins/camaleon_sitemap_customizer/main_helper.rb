@@ -42,13 +42,15 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
   def camaleon_sitemap_customizer_form(args)
     args[:extra_settings] << "
       <div class='form-group'>
-        <label for='options_hide_in_sitemap' class='control-label'>#{cama_t('hide_in_sitemap')}?</label>
+        <label for='options_hide_in_sitemap' class='control-label'>
         <input type='checkbox' name='options[hide_in_sitemap]' id='options_hide_in_sitemap' value='true' #{'checked' if args[:post].get_option('hide_in_sitemap').present?}>
+        &nbsp;&nbsp;#{cama_t('hide_in_sitemap')}?
+        </label>
       </div>
     "
   end
 
   def camaleon_sitemap_customizer_save(args)
-    params[:options]['hide_in_sitemap'] ||= nil
+    args[:post].set_option 'hide_in_sitemap', nil unless params.dig(:options, 'hide_in_sitemap').present?
   end
 end
