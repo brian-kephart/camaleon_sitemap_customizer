@@ -1,2 +1,9 @@
 en:
+  sitemap_settings: "Sitemap Settings"
   hide_in_sitemap: "Hide in sitemap"
+  instructions: "Camaleon CMS automatically generates a sitemap. Select the content types you wish to <b>exclude</b> from this sitemap. You can also exclude individual posts by using the post editor."
+  content_types_complete: "Content Types to exclude completely"
+  content_types_list: "Content Types to exclude (list pages only)"
+  categories_list: "Categories to exclude (list pages only)"
+  tags: "Exclude tags"
+  homepage: "Exclude redundant home page url? (ex. – remove www.mysite.com/home if this renders the same post as www.mysite.com)"
