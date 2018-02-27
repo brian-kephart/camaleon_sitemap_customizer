@@ -4,12 +4,14 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
   end
 
   def camaleon_sitemap_customizer_on_active(plugin)
+    set_skip_posts plugin
   end
 
   def camaleon_sitemap_customizer_on_inactive(plugin)
   end
 
   def camaleon_sitemap_customizer_on_upgrade(plugin)
+    set_skip_posts plugin
   end
 
   def camaleon_sitemap_customizer_on_plugin_options(args)
@@ -32,11 +34,11 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
     end
 
     # excluded list pages
-    r[:skip_posttype_ids] += current_plugin.get_option('skip_post_list_types')    .map(&:to_i) rescue nil
-    r[:skip_cat_ids]      += current_plugin.get_option('skip_category_list_types').map(&:to_i) rescue nil
+    r[:skip_posttype_ids] += current_plugin.get_option('skip_post_list_types')    .map(&:to_i) rescue []
+    r[:skip_cat_ids]      += current_plugin.get_option('skip_category_list_types').map(&:to_i) rescue []
     r[:skip_tag_ids]      += current_site.the_tags.map(&:id)   if current_plugin.get_option('skip_tags')
     r[:skip_post_ids]     += [@_site_options[:home_page].to_i] if current_plugin.get_option('skip_home')
-    r[:skip_post_ids]     += current_site.the_posts.select { |post| post.get_option('hide_in_sitemap').present? } .map(&:id)
+    r[:skip_post_ids]     += current_plugin.get_option('skip_posts').presence || []
   end
 
   def camaleon_sitemap_customizer_form(args)
@@ -52,5 +54,10 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
 
   def camaleon_sitemap_customizer_save(args)
     args[:post].set_option 'hide_in_sitemap', nil unless params.dig(:options, 'hide_in_sitemap').present?
+    set_skip_posts current_plugin
+  end
+
+  def set_skip_posts(plugin)
+    plugin.set_option 'skip_posts', current_site.the_posts.select { |post| post.get_option('hide_in_sitemap').present? } .map(&:id)
   end
 end
