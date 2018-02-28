@@ -35,7 +35,7 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
 
     # excluded list pages
     r[:skip_posttype_ids] += current_plugin.get_option('skip_post_list_types')    .map(&:to_i) rescue []
-    r[:skip_cat_ids]      += current_plugin.get_option('skip_category_list_types').map(&:to_i) rescue []
+    r[:skip_cat_ids]      += select_categories
     r[:skip_tag_ids]      += current_site.the_tags.map(&:id)   if current_plugin.get_option('skip_tags')
     r[:skip_post_ids]     += [@_site_options[:home_page].to_i] if current_plugin.get_option('skip_home')
     r[:skip_post_ids]     += current_plugin.get_option('skip_posts').presence || []
@@ -58,6 +58,14 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
   end
 
   def set_skip_posts(plugin)
-    plugin.set_option 'skip_posts', current_site.the_posts.select { |post| post.get_option('hide_in_sitemap').present? } .map(&:id)
+    plugin.set_option 'skip_posts', current_site.the_posts.eager_load(:metas).select { |post| post.get_option('hide_in_sitemap').present? } .map(&:id)
+  end
+
+  def select_categories
+    current_plugin.get_option('skip_all_categories').present? ?
+    current_site.the_full_categories.pluck(:id) :
+    current_plugin.get_option('skip_category_list_types').map(&:to_i)
+  rescue
+    []
   end
 end

@@ -13,6 +13,7 @@ class Plugins::CamaleonSitemapCustomizer::AdminController < CamaleonCms::Apps::P
     params[:options]['skip_post_types']          ||= []
     params[:options]['skip_post_list_types']     ||= []
     params[:options]['skip_category_list_types'] ||= []
+    params[:options]['skip_all_categories']      ||= false
     params[:options]['skip_tags']                ||= false
     params[:options]['skip_home']                ||= false
     @plugin.set_options(params[:options]) # save option values

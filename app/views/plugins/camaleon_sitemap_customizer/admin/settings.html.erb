@@ -42,6 +42,11 @@
       </div>
 
       <div class="form-group">
+        <label><%= cama_t 'categories_all' %>?</label>
+        <%= check_box_tag "options[skip_all_categories]", 1, @plugin.get_option('skip_all_categories'), style: 'display: block;' %>
+      </div>
+
+      <div class="form-group">
         <label><%= cama_t 'tags' %>?</label>
         <%= check_box_tag "options[skip_tags]", 1, @plugin.get_option('skip_tags'), style: 'display: block;' %>
       </div>
@@ -53,6 +58,7 @@
 
 
       <div class="form-group text-right">
+        <%= link_to 'View Sitemap', '/sitemap', target: 'blank' %>&nbsp;&nbsp;&nbsp;&nbsp;
         <%= submit_tag 'Save Settings', class: 'btn btn-primary' %>
       </div>
 

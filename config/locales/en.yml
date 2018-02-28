@@ -5,5 +5,6 @@ en:
   content_types_complete: "Content Types to exclude completely"
   content_types_list: "Content Types to exclude (list pages only)"
   categories_list: "Categories to exclude (list pages only)"
+  categories_all: "Exclude ALL Categories (overrides above setting)"
   tags: "Exclude Tags"
   homepage: "Exclude duplicate home page url? (ex. – remove www.mysite.com/home if this renders the same post as www.mysite.com)"
