@@ -14,7 +14,7 @@ This plugin (as of version 0.3.0) also adds an option to each post for exclusion
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'camaleon_sitemap_customizer', git: 'https://github.com/brian-kephart/camaleon_sitemap_customizer.git'
+gem 'camaleon_sitemap_customizer'
 ```
 
 And then execute:
