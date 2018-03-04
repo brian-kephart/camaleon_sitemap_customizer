@@ -9,12 +9,12 @@ Gem::Specification.new do |s|
   s.version     = CamaleonSitemapCustomizer::VERSION
   s.authors     = ["Brian Kephart"]
   s.email       = ["briantkephart@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://www.github.com/brian-kephart/camaleon_sitemap_customizer"
   s.summary     = "Customize auto-generated sitemap in Camaleon CMS"
-  s.description = "Customize auto-generated sitemap in Camaleon CMS"
+  s.description = "Customize auto-generated sitemap in Camaleon CMS. Eliminate duplicate content and list pages."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "camaleon_cms"
+  s.add_dependency "camaleon_cms", "~> 2.0"
 end
