@@ -8,7 +8,7 @@ Use the site settings (/admin/plugins/camaleon_sitemap_customizer/settings) to:
 - Exclude all **tag** list pages.
 - Exclude post url for page designated as the homepage. For example, if you have a page called '/index' that you have set as your homepage in the site settings, the sitemap will list the same page at 'http://yoursite.com/' and 'http://yoursite.com/index'. This option allows you to avoid the duplicate listing.
 
-This plugin (as of version 0.3.0) also adds an option to each post for exclusion from the sitemap. This is accessible via the regular post editor, rather than in the plugin settings.
+This plugin also adds an option to each post for exclusion from the sitemap. This is accessible via the regular post editor, rather than in the plugin settings.
 
 ## Installation
 Add this line to your application's Gemfile:
