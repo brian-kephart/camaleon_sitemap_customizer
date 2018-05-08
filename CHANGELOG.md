@@ -1,5 +1,6 @@
 ## unreleased
 
+- Add Travis CI
 - Specify Ruby version in gemspec
 
 ## 0.5.1

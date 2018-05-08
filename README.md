@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/brian-kephart/camaleon_sitemap_customizer.svg?branch=master)](https://travis-ci.org/brian-kephart/camaleon_sitemap_customizer)
+
 # Sitemap Customizer
 Camaleon CMS automatically generates sitemaps for all content of your site. This plugin allows you to select content to omit from the sitemap.
 
