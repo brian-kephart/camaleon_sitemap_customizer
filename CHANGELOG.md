@@ -1,6 +1,10 @@
+## unreleased
+
+- Specify Ruby version in gemspec
+
 ## 0.5.1
 
-Publish changelog & metadata
+- Publish changelog & metadata
 
 ## 0.5.0
 

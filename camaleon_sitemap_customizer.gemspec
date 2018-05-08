@@ -20,5 +20,7 @@ Gem::Specification.new do |s|
     "source_code_uri" => "https://www.github.com/brian-kephart/camaleon_sitemap_customizer"
   }
 
+  s.required_ruby_version = '~> 2.2'
+
   s.add_dependency "camaleon_cms", "~> 2.0"
 end
