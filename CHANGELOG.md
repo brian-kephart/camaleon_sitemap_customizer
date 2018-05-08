@@ -1,5 +1,6 @@
 ## unreleased
 
+- Get test suite running
 - Add Travis CI
 - Specify Ruby version in gemspec
 

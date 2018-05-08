@@ -23,4 +23,6 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '~> 2.2'
 
   s.add_dependency "camaleon_cms", "~> 2.0"
+
+  s.add_development_dependency "sqlite3", "~> 1.3.13"
 end

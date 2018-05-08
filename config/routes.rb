@@ -1,3 +1,6 @@
+require 'plugin_routes'
+require 'camaleon_cms/engine'
+
 Rails.application.routes.draw do
 
     scope PluginRoutes.system_info["relative_url_root"] do
