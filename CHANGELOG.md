@@ -4,6 +4,7 @@
 - Add Travis CI
 - Specify Ruby version in gemspec
 - Set up Rubocop
+- Added CONTRIBUTING.md
 
 ## 0.5.1
 

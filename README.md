@@ -30,11 +30,7 @@ $ gem install camaleon_sitemap_customizer
 ```
 
 ## Contributing
-- Fork it.
-- Create a branch (git checkout -b my_feature_branch)
-- Commit your changes (git commit -am "Added a sweet feature")
-- Push to the branch (git push origin my_feature_branch)
-- Create a pull request from your branch into master (Please be sure to provide enough detail for us to cipher what this change is doing)
+See CONTRIBUTING.md
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
