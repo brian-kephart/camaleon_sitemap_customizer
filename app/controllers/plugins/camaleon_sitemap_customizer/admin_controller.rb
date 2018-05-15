@@ -1,11 +1,9 @@
 class Plugins::CamaleonSitemapCustomizer::AdminController < CamaleonCms::Apps::PluginsAdminController
   include Plugins::CamaleonSitemapCustomizer::MainHelper
-  def index
-  end
+  def index; end
 
   # show settings form
-  def settings
-  end
+  def settings; end
 
   # save values from settings form
   def save_settings

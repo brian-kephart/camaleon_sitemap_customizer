@@ -3,6 +3,7 @@
 - Get test suite running
 - Add Travis CI
 - Specify Ruby version in gemspec
+- Set up Rubocop
 
 ## 0.5.1
 

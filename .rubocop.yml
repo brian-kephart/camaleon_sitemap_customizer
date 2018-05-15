@@ -1,0 +1,23 @@
+AllCops:
+  TargetRubyVersion: 2.2
+  Exclude:
+    - test/dummy/**/*
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/MixinUsage:
+  Exclude:
+    - test/dummy/bin/*
