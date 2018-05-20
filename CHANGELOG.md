@@ -6,6 +6,7 @@
 - Set up Rubocop
 - Added CONTRIBUTING.md
 - Require Ruby 2.3+
+- General improvements to the README
 
 ## 0.5.1
 
