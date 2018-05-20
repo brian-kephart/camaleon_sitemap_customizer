@@ -2,6 +2,7 @@ AllCops:
   TargetRubyVersion: 2.3
   Exclude:
     - test/dummy/**/*
+    - vendor/**/*
 
 Metrics/AbcSize:
   Enabled: false
@@ -16,6 +17,9 @@ Style/ClassAndModuleChildren:
   Enabled: false
 
 Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
   Enabled: false
 
 Style/MixinUsage:
