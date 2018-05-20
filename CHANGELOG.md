@@ -5,6 +5,7 @@
 - Specify Ruby version in gemspec
 - Set up Rubocop
 - Added CONTRIBUTING.md
+- Require Ruby 2.3+
 
 ## 0.5.1
 
