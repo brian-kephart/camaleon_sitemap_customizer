@@ -1,12 +1,12 @@
 ## unreleased
 
-- Get test suite running
 - Add Travis CI
 - Specify Ruby version in gemspec
 - Set up Rubocop
 - Added CONTRIBUTING.md
 - Require Ruby 2.3+
 - General improvements to the README
+- Add test suite
 
 ## 0.5.1
 
