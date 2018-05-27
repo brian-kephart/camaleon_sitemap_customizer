@@ -1,7 +1,6 @@
-## unreleased
+## 0.5.2
 
 - Add Travis CI
-- Specify Ruby version in gemspec
 - Set up Rubocop
 - Added CONTRIBUTING.md
 - Require Ruby 2.3+

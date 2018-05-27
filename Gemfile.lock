@@ -23,7 +23,7 @@ GIT
 PATH
   remote: .
   specs:
-    camaleon_sitemap_customizer (0.5.1)
+    camaleon_sitemap_customizer (0.5.2)
       camaleon_cms (~> 2.0)
 
 GEM
