@@ -1,8 +1,13 @@
 language: ruby
 cache: bundler
 rvm:
+  - 2.3 # lowest version supported
+  - 2.4
   - 2.5 # current version
   - ruby-head # next version
+matrix:
+  allow_failures:
+  - rvm: ruby-head
 bundler_args: -j4
 script:
   - bundle exec rubocop -c ./.rubocop.yml
