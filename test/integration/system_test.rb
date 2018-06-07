@@ -41,6 +41,7 @@ class SystemTest < ActionDispatch::IntegrationTest
   end
 
   def admin_sign_in
+    current_site.set_option 'date_notified', Date.today # Avoid weird threading bug
     visit "#{current_site.the_url}admin/logout"
     fill_in 'Username', with: 'admin'
     fill_in 'Password', with: 'admin123'

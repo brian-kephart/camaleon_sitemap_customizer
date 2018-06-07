@@ -153,6 +153,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
   end
 
   def admin_sign_in
+    current_site.set_option 'date_notified', Date.today # Avoid weird threading bug
     post "#{current_site.the_url}admin/login", params: {
       user: { username: 'admin', password: 'admin123' }
     }
