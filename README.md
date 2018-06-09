@@ -1,6 +1,8 @@
+![](https://img.shields.io/badge/ruby-2.3%2B-red.svg)
+![Gem Version](https://img.shields.io/gem/v/camaleon_sitemap_customizer.svg?colorB=blue)
 [![Build Status](https://travis-ci.com/brian-kephart/camaleon_sitemap_customizer.svg?branch=master)](https://travis-ci.com/brian-kephart/camaleon_sitemap_customizer)
 
-# Sitemap Customizer
+# Camaleon Sitemap Customizer
 Camaleon CMS automatically generates sitemaps for all content of your site. This plugin allows you to select content to omit from the sitemap. You may wish to do this for a variety of reasons:
 - Keep search engines from indexing pages that are not relevant to the general public.
 - Keep search engines from indexing summary pages that only contain duplicate content.
