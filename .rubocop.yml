@@ -10,6 +10,10 @@ Layout/SpaceAroundOperators:
 Metrics/AbcSize:
   Enabled: false
 
+Metrics/BlockLength:
+  Exclude:
+    - /**/*.xml.builder
+
 Metrics/ClassLength:
   Exclude:
     - test/**/*
@@ -21,6 +25,9 @@ Metrics/MethodLength:
   Enabled: false
 
 Metrics/LineLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
   Enabled: false
 
 Naming/AccessorMethodName:

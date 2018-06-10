@@ -18,9 +18,12 @@ Rails.application.configure do
     'Cache-Control' => "public, max-age=#{1.hour.seconds.to_i}"
   }
 
-  # Show full error reports and disable caching.
+  # Show full error reports.
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = false
+
+  # Enable caching (for /app/views/theme/default/views/sitemap_with_caching.xml.builder)
+  config.action_controller.perform_caching = true
+  config.cache_store = :memory_store
 
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false

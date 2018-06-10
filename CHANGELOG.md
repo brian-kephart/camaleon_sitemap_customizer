@@ -1,3 +1,9 @@
+## 1.0.0
+
+Features:
+
+- Include sitemap template with Russian doll caching
+
 ## 0.5.2
 
 - Add Travis CI

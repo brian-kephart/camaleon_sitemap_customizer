@@ -7,11 +7,16 @@ class NavigationTest < ActionDispatch::IntegrationTest
     admin_sign_in
     get 'http://localhost:3000/admin/plugins/toggle?id=camaleon_sitemap_customizer&status=false'
     assert_equal 'Plugin "Camaleon Sitemap Customizer" was activated.', flash[:notice]
+    # Use the sitemap file included with the plugin for tests. Reset all other options.
+    post 'http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings', params: {
+      options: { cache: true }
+    }
   end
 
   def teardown
+    # Use the sitemap file included with the plugin for tests. Reset all other options.
     post 'http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings', params: {
-      options: {}
+      options: { cache: true }
     }
     follow_redirect!
     assert_equal 'Settings Saved Successfully', flash[:notice]
@@ -144,6 +149,18 @@ class NavigationTest < ActionDispatch::IntegrationTest
     get "#{current_site.the_url}sitemap"
     assert_select 'loc', text: current_site.the_url, count: 1
     assert_select 'loc', text: home.the_url, count: 0
+  end
+
+  test 'test that sitemap with caching operates correctly' do
+    # All tests are run using the sitemap template with caching to be sure
+    # that it works. This test just verifies that turning off the cache option
+    # results in using the default sitemap file, which is intentionally blank
+    # except for the test message.
+    post 'http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings', params: {
+      options: { cache: false }
+    }
+    get '/sitemap.xml'
+    assert_select 'xml', text: 'Default sitemap found successfully'
   end
 
   private

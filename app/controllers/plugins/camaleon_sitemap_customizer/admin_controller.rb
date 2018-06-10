@@ -5,7 +5,8 @@ class Plugins::CamaleonSitemapCustomizer::AdminController < CamaleonCms::Apps::P
     'skip_category_list_types' => [],
     'skip_all_categories' => false,
     'skip_tags' => false,
-    'skip_home' => false
+    'skip_home' => false,
+    'cache' => Rails.env.test? ? true : false
   }.freeze
 
   include Plugins::CamaleonSitemapCustomizer::MainHelper

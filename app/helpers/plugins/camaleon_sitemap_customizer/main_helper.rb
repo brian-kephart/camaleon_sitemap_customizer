@@ -31,8 +31,15 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
     args[:skip_posttype_ids] += current_plugin.get_option('skip_post_list_types')&.map(&:to_i).presence || []
     args[:skip_cat_ids]      += select_categories
     args[:skip_tag_ids]      += current_site.the_tags.map(&:id) if current_plugin.get_option('skip_tags')
+
+    # exclude individual posts via post editor option
     args[:skip_post_ids]     += current_plugin.get_option('skip_posts').presence || []
+
+    # exclude redundant home page url
     args[:skip_post_ids]     << current_site.options.dig(:home_page).to_i if current_plugin.get_option('skip_home') && current_site.options.dig(:home_page).present?
+
+    # use caching in sitemap
+    args[:render] = cached_sitemap_template if current_plugin.get_option('cache').present?
   end
 
   def camaleon_sitemap_customizer_form(args)
@@ -51,6 +58,8 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
     skip_posts current_plugin
   end
 
+  private
+
   def skip_posts(plugin)
     plugin.set_option 'skip_posts', current_site.the_posts.eager_load(:metas).select { |post| post.get_option('hide_in_sitemap').present? } .map(&:id)
   end
@@ -61,5 +70,9 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
     else
       current_plugin.get_option('skip_category_list_types')&.map(&:to_i).presence || []
     end
+  end
+
+  def cached_sitemap_template
+    'sitemap_with_caching'
   end
 end
