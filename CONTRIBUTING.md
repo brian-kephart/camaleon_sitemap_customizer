@@ -8,8 +8,11 @@
 - If you have a Travis-CI account, make sure the build passes
 - Create a pull request from your branch into master (Please be sure to provide enough detail for us to understand what this change is doing)
 
+## Supported Versions
+This repo supports [Ruby](https://www.ruby-lang.org/en/downloads/branches/) and [Rails](https://rubyonrails.org/maintenance/) versions that are still in their support period. Please do not submit changes to support older versions.
+
 ## Testing
-This repo uses the stock Rails testing setup (Minitest/fixtures, no RSpec or factories). That means you should be able to run the tests locally without any special setup or configuration. **If you can't run the tests locally, please create an issue.**
+This repo uses the stock Rails testing setup. That means you should be able to run the tests locally without any special setup or configuration. **If you can't run the tests locally, please create an issue.**
 
 All changes should have tests. Those tests should fail without your new code, but pass with your new code.
 
