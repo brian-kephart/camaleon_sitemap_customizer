@@ -11,6 +11,8 @@
 ## Supported Versions
 This repo supports [Ruby](https://www.ruby-lang.org/en/downloads/branches/) and [Rails](https://rubyonrails.org/maintenance/) versions that are still in their support period. Please do not submit changes to support older versions.
 
+As versions of Ruby and Rails leave their support period, support for them will be dropped from this project. This is not considered a breaking change and may happen at any level of release.
+
 ## Testing
 This repo uses the stock Rails testing setup. That means you should be able to run the tests locally without any special setup or configuration. **If you can't run the tests locally, please create an issue.**
 
