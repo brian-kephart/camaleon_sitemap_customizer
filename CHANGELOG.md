@@ -1,3 +1,7 @@
+## unreleased
+
+- Update .rubocop.yml
+
 ## 1.0.0
 
 Features:

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class NavigationTest < ActionDispatch::IntegrationTest
@@ -134,7 +136,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
   end
 
   test 'exclude redundant homepage url' do
-    home = current_site.posts.find_by_id(current_site.options.dig :home_page).decorate
+    home = current_site.posts.find_by_id(current_site.options.dig(:home_page)).decorate
 
     # Make sure both homepage URLs are in the sitemap.
     get "#{current_site.the_url}sitemap"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Plugins::CamaleonSitemapCustomizer::MainHelper
   def self.included(klass)
     # klass.helper_method [:my_helper_method] rescue "" # here your methods accessible from views

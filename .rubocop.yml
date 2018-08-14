@@ -39,12 +39,6 @@ Style/ClassAndModuleChildren:
 Style/Documentation:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 Style/MixinUsage:
   Exclude:
     - test/dummy/bin/*
-
-Style/NestedParenthesizedCalls:
-  Enabled: false

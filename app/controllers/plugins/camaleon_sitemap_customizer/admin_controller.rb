@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Plugins::CamaleonSitemapCustomizer::AdminController < CamaleonCms::Apps::PluginsAdminController
   DEFAULT_OPTIONS = {
     'skip_post_types' => [],
