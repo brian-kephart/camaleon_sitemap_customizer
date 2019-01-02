@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.files       = Dir['{app,config,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
   s.metadata    = {
-    'homepage_uri'    => 'https://www.github.com/brian-kephart/camaleon_sitemap_customizer',
-    'changelog_uri'   => 'https://www.github.com/brian-kephart/camaleon_sitemap_customizer/blob/master/CHANGELOG.md',
+    'homepage_uri' => 'https://www.github.com/brian-kephart/camaleon_sitemap_customizer',
+    'changelog_uri' => 'https://www.github.com/brian-kephart/camaleon_sitemap_customizer/blob/master/CHANGELOG.md',
     'source_code_uri' => 'https://www.github.com/brian-kephart/camaleon_sitemap_customizer'
   }
 
