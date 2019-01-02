@@ -1,9 +1,9 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.3 # lowest version supported
-  - 2.4
-  - 2.5 # current version
+  - 2.4 # lowest version supported
+  - 2.5
+  - 2.6 # current version
   - ruby-head # next version
 matrix:
   allow_failures:

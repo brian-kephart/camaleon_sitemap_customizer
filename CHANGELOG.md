@@ -1,6 +1,7 @@
 ## unreleased
 
 - Update .rubocop.yml
+- Support Ruby 2.6 and remove 2.3
 
 ## 1.0.0
 
