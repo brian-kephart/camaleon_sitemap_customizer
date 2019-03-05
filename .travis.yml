@@ -10,5 +10,5 @@ matrix:
   - rvm: ruby-head
 bundler_args: -j4
 script:
-  - bundle exec rubocop -c ./.rubocop.yml
+  - bundle exec standardrb --no-fix
   - bundle exec rails test

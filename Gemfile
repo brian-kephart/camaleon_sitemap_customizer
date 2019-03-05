@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-source 'https://rubygems.org'
+source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Declare your gem's dependencies in camaleon_sitemap_customizer.gemspec.
@@ -9,12 +9,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gemspec
 
 group :development, :test do
-  gem 'camaleon_cms', github: 'owen2345/camaleon-cms'
-  gem 'capybara'
-  gem 'chromedriver-helper'
-  gem 'draper'
-  gem 'puma'
-  gem 'selenium-webdriver'
+  gem "camaleon_cms", github: "owen2345/camaleon-cms"
+  gem "capybara"
+  gem "chromedriver-helper"
+  gem "draper"
+  gem "puma"
+  gem "selenium-webdriver"
+  gem "standard"
 end
 
 # Declare any dependencies that are still in development here instead of in
@@ -26,5 +27,5 @@ end
 # gem 'byebug', group: [:development, :test]
 
 #################### Camaleon CMS include all gems for plugins and themes ####################
-require_relative 'test/dummy/lib/plugin_routes'
+require_relative "test/dummy/lib/plugin_routes"
 instance_eval(PluginRoutes.draw_gems)

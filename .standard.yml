@@ -1,0 +1,9 @@
+fix: true
+format: progress
+ruby_version: 2.4
+
+ignore:
+  - 'db/schema.rb'
+  - 'vendor/**/*'
+  - 'test/dummy/bin/*':
+    - Style/MixinUsage

@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-xml.instruct! :xml, version: '1.0'
-xml.urlset xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' do
+xml.instruct! :xml, version: "1.0"
+xml.urlset xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" do
   current_site.get_languages.each_with_index do |lang, index|
     lang = (index.zero? ? nil : lang)
     xml.url do
       xml.loc current_site.the_url(locale: lang)
       xml.lastmod current_site.updated_at.to_date
-      xml.changefreq 'daily'
-      xml.priority '1.0'
+      xml.changefreq "daily"
+      xml.priority "1.0"
     end
 
     cache ["xml_sitemap/posts/#{current_site.the_posts.maximum :updated_at}", @r[:skip_post_ids]] do
@@ -19,8 +19,8 @@ xml.urlset xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' do
           xml.url do
             xml.loc post.the_url(locale: lang)
             xml.lastmod post.updated_at.to_date
-            xml.changefreq 'monthly'
-            xml.priority '0.5'
+            xml.changefreq "monthly"
+            xml.priority "0.5"
           end
         end
       end
@@ -34,8 +34,8 @@ xml.urlset xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' do
           xml.url do
             xml.loc cat.the_url(locale: lang)
             xml.lastmod cat.updated_at.to_date
-            xml.changefreq 'monthly'
-            xml.priority '0.5'
+            xml.changefreq "monthly"
+            xml.priority "0.5"
           end
         end
       end
@@ -49,8 +49,8 @@ xml.urlset xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' do
           xml.url do
             xml.loc ptype.the_url(locale: lang)
             xml.lastmod ptype.updated_at.to_date
-            xml.changefreq 'monthly'
-            xml.priority '0.5'
+            xml.changefreq "monthly"
+            xml.priority "0.5"
           end
         end
       end
@@ -64,8 +64,8 @@ xml.urlset xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' do
           xml.url do
             xml.loc tag.the_url(locale: lang)
             xml.lastmod tag.updated_at.to_date
-            xml.changefreq 'monthly'
-            xml.priority '0.5'
+            xml.changefreq "monthly"
+            xml.priority "0.5"
           end
         end
       end
@@ -78,8 +78,8 @@ xml.urlset xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' do
         xml.url do
           xml.loc item[:url]
           xml.lastmod item[:lastmod] || Date.today.to_s
-          xml.changefreq item[:changefreq] || 'monthly'
-          xml.priority item[:priority] || '0.5'
+          xml.changefreq item[:changefreq] || "monthly"
+          xml.priority item[:priority] || "0.5"
         end
       end
     end

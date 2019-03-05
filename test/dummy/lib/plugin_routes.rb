@@ -1,4 +1,4 @@
-require 'json'
+require "json"
 class PluginRoutes
   # draw "all" gems registered for the plugins or themes and camaleon gems
   def self.draw_gems
@@ -15,8 +15,8 @@ class PluginRoutes
 
   # return apps directory path
   def self.apps_dir
-    dir =  "#{File.dirname(__FILE__)}".split("/")
+    dir = File.dirname(__FILE__).to_s.split("/")
     dir.pop
-    dir.join("/")+ '/app/apps'
+    dir.join("/") + "/app/apps"
   end
 end

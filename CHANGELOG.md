@@ -1,6 +1,6 @@
 ## unreleased
 
-- Update .rubocop.yml
+- Adopt StandardRB code style, remove .rubocop.yml
 - Support Ruby 2.6 and remove 2.3
 
 ## 1.0.0
