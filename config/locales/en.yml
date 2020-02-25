@@ -9,3 +9,5 @@ en:
   tags: "Exclude Tags"
   homepage: "Exclude duplicate home page url? (ex. – remove www.mysite.com/home if this renders the same post as www.mysite.com)"
   cache: "Use caching to speed up sitemap rendering?"
+  submit_changes_to_google: "Submit sitemap to Google when changes are made? (requires ActiveJob)"
+  submit_sitemap_to_google: "Submit sitemap to Google"

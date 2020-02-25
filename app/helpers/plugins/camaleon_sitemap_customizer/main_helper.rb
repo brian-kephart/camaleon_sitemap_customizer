@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 module Plugins::CamaleonSitemapCustomizer::MainHelper
+  # methods accessible from views
   def self.included(klass)
-    # klass.helper_method [:my_helper_method] rescue "" # here your methods accessible from views
+    klass.helper_method [:camaleon_sitemap_customizer_google_submit_url]
+  rescue
+    ""
   end
 
   def camaleon_sitemap_customizer_on_active(plugin)
@@ -17,7 +20,11 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
   end
 
   def camaleon_sitemap_customizer_on_plugin_options(args)
-    args[:links] << [link_to("Settings", admin_plugins_camaleon_sitemap_customizer_settings_path), link_to("View Sitemap", "/sitemap", target: :blank)]
+    args[:links] << [
+      link_to("Settings", admin_plugins_camaleon_sitemap_customizer_settings_path),
+      link_to("View Sitemap", cama_sitemap_url, target: :blank),
+      link_to("Submit Sitemap to Google", camaleon_sitemap_customizer_google_submit_url, target: :blank),
+    ]
   end
 
   def customize_sitemap(args)
@@ -56,9 +63,22 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
     "
   end
 
+  def camaleon_sitemap_customizer_google_submit_url
+    "https://www.google.com/ping?sitemap=#{cama_sitemap_url}"
+  end
+
   def camaleon_sitemap_customizer_save(args)
     args[:post].set_option "hide_in_sitemap", false unless params.dig(:options, "hide_in_sitemap").present?
     skip_posts current_plugin
+  end
+
+  def camaleon_sitemap_customizer_submit_sitemap(_args)
+    plugin = current_site.get_plugin("camaleon_sitemap_customizer").decorate
+    return unless plugin.get_option "submit_changes_to_google"
+    CamaleonSitemapCustomizer::SubmitSitemapJob.perform_later camaleon_sitemap_customizer_google_submit_url
+    flash[:alert] = "Sitemap submitted."
+  rescue => e
+    flash[:alert] = e.message
   end
 
   private

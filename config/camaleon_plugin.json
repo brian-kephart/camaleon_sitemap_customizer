@@ -6,12 +6,15 @@
     "Plugins::CamaleonSitemapCustomizer::MainHelper"
   ],
   "hooks": {
-    "new_post":["camaleon_sitemap_customizer_form"],
-    "edit_post":["camaleon_sitemap_customizer_form"],
-    "updated_post": ["camaleon_sitemap_customizer_save"],
+    "created_post": ["camaleon_sitemap_customizer_submit_sitemap"],
+    "edit_post": ["camaleon_sitemap_customizer_form"],
+    "new_post": ["camaleon_sitemap_customizer_form"],
     "on_active": ["camaleon_sitemap_customizer_on_active"],
     "on_inactive": ["camaleon_sitemap_customizer_on_inactive"],
+    "on_render_sitemap": ["customize_sitemap"],
     "plugin_options": ["camaleon_sitemap_customizer_on_plugin_options"],
-    "on_render_sitemap": ["customize_sitemap"]
+    "restored_post": ["camaleon_sitemap_customizer_submit_sitemap"],
+    "trashed_post": ["camaleon_sitemap_customizer_submit_sitemap"],
+    "updated_post": ["camaleon_sitemap_customizer_save", "camaleon_sitemap_customizer_submit_sitemap"]
   }
 }

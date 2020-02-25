@@ -10,7 +10,10 @@ Camaleon CMS automatically generates sitemaps for all content of your site. This
 - Keep search engines from indexing summary pages that only contain duplicate content.
 - Remove redundant entries. (ex. – 'https://yoursite.com', 'https://yoursite.com/index')
 
-This plugin also comes with an optional sitemap template that includes caching to speed up rendering.
+This plugin also comes with:
+- an optional sitemap template that includes caching to speed up rendering,
+- links in plugin settings to submit your sitemap to Google,
+- an option to automatically resubmit your sitemap to Google when changes are made (requires ActiveJob).
 
 ## Installation
 Add this line to your application's Gemfile:
