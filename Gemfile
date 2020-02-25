@@ -11,7 +11,7 @@ gemspec
 group :development, :test do
   gem "camaleon_cms", github: "owen2345/camaleon-cms"
   gem "capybara"
-  gem "chromedriver-helper"
+  gem "webdrivers"
   gem "draper"
   gem "puma"
   gem "selenium-webdriver"

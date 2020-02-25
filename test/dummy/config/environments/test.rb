@@ -19,7 +19,7 @@ Rails.application.configure do
   }
 
   # Show full error reports.
-  config.consider_all_requests_local       = true
+  config.consider_all_requests_local = true
 
   # Enable caching (for /app/views/theme/default/views/sitemap_with_caching.xml.builder)
   config.action_controller.perform_caching = true

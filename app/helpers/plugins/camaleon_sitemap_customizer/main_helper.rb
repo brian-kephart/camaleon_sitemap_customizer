@@ -32,11 +32,11 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
 
     # excluded list pages
     args[:skip_posttype_ids] += current_plugin.get_option("skip_post_list_types")&.map(&:to_i).presence || []
-    args[:skip_cat_ids]      += select_categories
-    args[:skip_tag_ids]      += current_site.the_tags.map(&:id) if current_plugin.get_option("skip_tags")
+    args[:skip_cat_ids] += select_categories
+    args[:skip_tag_ids] += current_site.the_tags.map(&:id) if current_plugin.get_option("skip_tags")
 
     # exclude individual posts via post editor option
-    args[:skip_post_ids]     += current_plugin.get_option("skip_posts").presence || []
+    args[:skip_post_ids] += current_plugin.get_option("skip_posts").presence || []
 
     # exclude redundant home page url
     args[:skip_post_ids] << current_site.options.dig(:home_page).to_i if current_plugin.get_option("skip_home") && current_site.options.dig(:home_page).present?
