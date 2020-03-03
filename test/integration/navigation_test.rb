@@ -6,22 +6,17 @@ class NavigationTest < ActionDispatch::IntegrationTest
   CONTROLLER = CamaleonCms::AdminController
 
   def setup
+    archive_db_path = Rails.root.join("db", "test_copy.sqlite3")
+    test_db_path = Rails.root.join("db", "test.sqlite3")
+    FileUtils.cp archive_db_path, test_db_path
     admin_sign_in
     get "http://localhost:3000/admin/plugins/toggle?id=camaleon_sitemap_customizer&status=false"
     assert_equal 'Plugin "Camaleon Sitemap Customizer" was activated.', flash[:notice]
-    # Use the sitemap file included with the plugin for tests. Reset all other options.
-    post "http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings", params: {
-      options: {cache: true},
-    }
+    reset_plugin_options
   end
 
   def teardown
-    # Use the sitemap file included with the plugin for tests. Reset all other options.
-    post "http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings", params: {
-      options: {cache: true},
-    }
-    follow_redirect!
-    assert_equal "Settings Saved Successfully", flash[:notice]
+    reset_plugin_options
   end
 
   test "exclude content type completely" do
@@ -41,7 +36,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
 
     # Change settings to remove content_type
     post "http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings", params: {
-      options: {skip_post_types: [content_type.id]},
+      options: {skip_post_types: [content_type.id]}
     }
     assert_redirected_to "http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/settings", "Did not correctly redirect to plugin settings page after saving settings."
 
@@ -73,7 +68,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
 
     # Change settings to remove content_type
     post "http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings", params: {
-      options: {skip_post_list_types: [content_type.id]},
+      options: {skip_post_list_types: [content_type.id]}
     }
     assert_redirected_to "http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/settings", "Did not correctly redirect to plugin settings page after saving settings."
 
@@ -94,7 +89,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
     assert_select "loc", text: cat.the_url, count: 1
 
     post "http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings", params: {
-      options: {skip_category_list_types: [cat.id]},
+      options: {skip_category_list_types: [cat.id]}
     }
 
     get "#{current_site.the_url}sitemap"
@@ -108,7 +103,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
     count = css_select("loc").count - cats.count
 
     post "http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings", params: {
-      options: {skip_all_categories: true},
+      options: {skip_all_categories: true}
     }
 
     get "#{current_site.the_url}sitemap"
@@ -125,7 +120,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
     count = css_select("loc").count - tags.count
 
     post "http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings", params: {
-      options: {skip_tags: true},
+      options: {skip_tags: true}
     }
 
     get "#{current_site.the_url}sitemap"
@@ -144,7 +139,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
     assert_select "loc", text: home.the_url, count: 1
 
     post "http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings", params: {
-      options: {skip_home: true},
+      options: {skip_home: true}
     }
 
     # Make sure redundant ULR is removed from sitemap.
@@ -159,7 +154,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
     # results in using the default sitemap file, which is intentionally blank
     # except for the test message.
     post "http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings", params: {
-      options: {cache: false},
+      options: {cache: false}
     }
     get "/sitemap.xml"
     assert_select "xml", text: "Default sitemap found successfully"
@@ -174,9 +169,18 @@ class NavigationTest < ActionDispatch::IntegrationTest
   def admin_sign_in
     current_site.set_option "date_notified", Date.today # Avoid weird threading bug
     post "#{current_site.the_url}admin/login", params: {
-      user: {username: "admin", password: "admin123"},
+      user: {username: "admin", password: "admin123"}
     }
     follow_redirect!
     assert_equal "Welcome!!!", flash[:notice]
+  end
+
+  def reset_plugin_options
+    # Use the sitemap file included with the plugin for tests. Reset all other options.
+    post "http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings", params: {
+      options: {cache: true}
+    }
+    follow_redirect!
+    assert_equal "Settings Saved Successfully", flash[:notice]
   end
 end

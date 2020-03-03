@@ -23,7 +23,7 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
     args[:links] << [
       link_to("Settings", admin_plugins_camaleon_sitemap_customizer_settings_path),
       link_to("View Sitemap", cama_sitemap_url, target: :blank),
-      link_to("Submit Sitemap to Google", camaleon_sitemap_customizer_google_submit_url, target: :blank),
+      link_to("Submit Sitemap to Google", camaleon_sitemap_customizer_google_submit_url, target: :blank)
     ]
   end
 

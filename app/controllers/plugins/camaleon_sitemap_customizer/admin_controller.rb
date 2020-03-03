@@ -9,7 +9,7 @@ class Plugins::CamaleonSitemapCustomizer::AdminController < CamaleonCms::Apps::P
     "skip_tags" => false,
     "skip_home" => false,
     "cache" => Rails.env.test?,
-    "submit_changes_to_google" => false,
+    "submit_changes_to_google" => false
   }.freeze
 
   include Plugins::CamaleonSitemapCustomizer::MainHelper

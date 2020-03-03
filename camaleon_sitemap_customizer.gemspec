@@ -19,15 +19,13 @@ Gem::Specification.new do |s|
   s.metadata = {
     "homepage_uri" => "https://www.github.com/brian-kephart/camaleon_sitemap_customizer",
     "changelog_uri" => "https://www.github.com/brian-kephart/camaleon_sitemap_customizer/blob/master/CHANGELOG.md",
-    "source_code_uri" => "https://www.github.com/brian-kephart/camaleon_sitemap_customizer",
+    "source_code_uri" => "https://www.github.com/brian-kephart/camaleon_sitemap_customizer"
   }
 
-  s.required_ruby_version = "~> 2.4"
+  s.required_ruby_version = "~> 2.5"
 
   s.add_dependency "camaleon_cms", "~> 2.0"
 
-  s.add_development_dependency "sqlite3", "~> 1.3.13"
-  s.add_development_dependency "rails", "< 6"
-  s.add_development_dependency "sprockets", "< 4"
-  s.add_development_dependency "breadcrumbs_on_rails", "< 4"
+  s.add_development_dependency "sqlite3", "~> 1.4"
+  s.add_development_dependency "rails", "~> 6.0.0"
 end
