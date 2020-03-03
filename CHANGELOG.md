@@ -1,9 +1,12 @@
-## unreleased
+## 1.1.0
+
+- Adopt StandardRB code style, remove .rubocop.yml
+- Support Ruby 2.6 & 2.7 and remove 2.3 & 2.4
+
+Features:
 
 - Add option for submitting sitemap to Google automatically
 - Add links to submit sitemap to Google manually
-- Adopt StandardRB code style, remove .rubocop.yml
-- Support Ruby 2.6 and remove 2.3
 
 ## 1.0.0
 
