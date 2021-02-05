@@ -84,7 +84,7 @@ module Plugins::CamaleonSitemapCustomizer::MainHelper
   private
 
   def skip_posts(plugin)
-    plugin.set_option "skip_posts", current_site.the_posts.eager_load(:metas).select { |post| post.get_option("hide_in_sitemap").present? } .map(&:id)
+    plugin.set_option "skip_posts", current_site.the_posts.eager_load(:metas).select { |post| post.get_option("hide_in_sitemap").present? }.map(&:id)
   end
 
   def select_categories
