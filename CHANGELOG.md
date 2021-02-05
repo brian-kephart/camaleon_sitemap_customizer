@@ -1,3 +1,8 @@
+## 1.1.1
+
+  - Use Rails 6.1 for development
+  - Support Ruby 3.0
+
 ## 1.1.0
 
 - Adopt StandardRB code style, remove .rubocop.yml
