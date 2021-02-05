@@ -3,10 +3,17 @@
 require "test_helper"
 
 class SystemTest < ActionDispatch::IntegrationTest
-  CONTROLLER = CamaleonCms::AdminController
-
   include Capybara::DSL
   include Capybara::Minitest::Assertions
+
+  def setup
+    archive_db_path = Rails.root.join("db", "test_copy.sqlite3")
+    test_db_path = Rails.root.join("db", "test.sqlite3")
+    FileUtils.cp archive_db_path, test_db_path
+    admin_sign_in
+    get "http://localhost:3000/admin/plugins/toggle?id=camaleon_sitemap_customizer&status=false"
+    reset_plugin_options
+  end
 
   def teardown
     Capybara.reset_sessions!
@@ -33,7 +40,7 @@ class SystemTest < ActionDispatch::IntegrationTest
   private
 
   def current_site
-    CONTROLLER.new.current_site
+    @current_site ||= CamaleonCms::Site.first.decorate
   end
 
   def activate_plugin
@@ -49,5 +56,13 @@ class SystemTest < ActionDispatch::IntegrationTest
     fill_in "Password", with: "admin123"
     click_on "Log In"
     assert find(".alert-success").has_content?("Welcome!!!"), "Login failed."
+  end
+
+  def reset_plugin_options
+    # Use the sitemap file included with the plugin for tests. Reset all other options.
+    post "http://localhost:3000/admin/plugins/camaleon_sitemap_customizer/save_settings", params: {
+      options: {cache: true}
+    }
+    follow_redirect!
   end
 end

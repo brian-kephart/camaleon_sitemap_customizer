@@ -3,8 +3,6 @@
 require "test_helper"
 
 class NavigationTest < ActionDispatch::IntegrationTest
-  CONTROLLER = CamaleonCms::AdminController
-
   def setup
     archive_db_path = Rails.root.join("db", "test_copy.sqlite3")
     test_db_path = Rails.root.join("db", "test.sqlite3")
@@ -163,7 +161,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
   private
 
   def current_site
-    CONTROLLER.new.current_site
+    @current_site ||= CamaleonCms::Site.first.decorate
   end
 
   def admin_sign_in
