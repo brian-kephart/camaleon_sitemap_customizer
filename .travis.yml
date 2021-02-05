@@ -3,7 +3,8 @@ cache: bundler
 rvm:
   - 2.5 # lowest version supported
   - 2.6
-  - 2.7 # current version
+  - 2.7
+  - 3.0 # current version
   - ruby-head # next version
 matrix:
   allow_failures:
