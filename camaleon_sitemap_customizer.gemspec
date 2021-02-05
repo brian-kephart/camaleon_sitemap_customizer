@@ -27,5 +27,5 @@ Gem::Specification.new do |s|
   s.add_dependency "camaleon_cms", "~> 2.0"
 
   s.add_development_dependency "sqlite3", "~> 1.4"
-  s.add_development_dependency "rails", "~> 6.0.0"
+  s.add_development_dependency "rails", "~> 6.1.0"
 end
