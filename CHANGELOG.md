@@ -1,7 +1,11 @@
+## unreleased
+
+- Require Ruby 2.6+
+
 ## 1.1.1
 
-  - Use Rails 6.1 for development
-  - Support Ruby 3.0
+- Use Rails 6.1 for development
+- Support Ruby 3.0
 
 ## 1.1.0
 

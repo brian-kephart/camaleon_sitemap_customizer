@@ -1,8 +1,7 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.5 # lowest version supported
-  - 2.6
+  - 2.6 # lowest version supported
   - 2.7
   - 3.0 # current version
   - ruby-head # next version

@@ -1,6 +1,6 @@
 fix: true
 format: progress
-ruby_version: 2.5
+ruby_version: 2.6
 
 ignore:
   - 'db/schema.rb'
