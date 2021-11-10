@@ -1,8 +1,7 @@
 ![](https://img.shields.io/badge/ruby-2.6%2B-red.svg)
 ![Gem Version](https://img.shields.io/gem/v/camaleon_sitemap_customizer.svg?colorB=blue)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
-[![Build Status](https://travis-ci.com/brian-kephart/camaleon_sitemap_customizer.svg?branch=master)](https://travis-ci.com/brian-kephart/camaleon_sitemap_customizer)
-
+[![Build](https://github.com/brian-kephart/camaleon_sitemap_customizer/actions/workflows/build.yml/badge.svg)](https://github.com/brian-kephart/camaleon_sitemap_customizer/actions/workflows/build.yml)
 
 # Camaleon Sitemap Customizer
 Camaleon CMS automatically generates sitemaps for all content of your site. This plugin allows you to select content to omit from the sitemap. You may wish to do this for a variety of reasons:
