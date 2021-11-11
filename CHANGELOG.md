@@ -1,5 +1,6 @@
 ## unreleased
 
+- Support Ruby 3.1
 - Require Ruby 2.6+
 
 ## 1.1.1

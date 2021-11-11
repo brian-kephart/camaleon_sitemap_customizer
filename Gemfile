@@ -16,6 +16,11 @@ group :development, :test do
   gem "puma"
   gem "selenium-webdriver"
   gem "standard"
+
+  # Until the Mail gem supports ruby 3.1
+  gem "net-smtp"
+  gem "net-pop"
+  gem "net-imap"
 end
 
 # Declare any dependencies that are still in development here instead of in
