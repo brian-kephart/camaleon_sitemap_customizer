@@ -19,7 +19,8 @@ Gem::Specification.new do |s|
   s.metadata = {
     "homepage_uri" => "https://www.github.com/brian-kephart/camaleon_sitemap_customizer",
     "changelog_uri" => "https://www.github.com/brian-kephart/camaleon_sitemap_customizer/blob/master/CHANGELOG.md",
-    "source_code_uri" => "https://www.github.com/brian-kephart/camaleon_sitemap_customizer"
+    "source_code_uri" => "https://www.github.com/brian-kephart/camaleon_sitemap_customizer",
+    "rubygems_mfa_required" => "true"
   }
 
   s.required_ruby_version = ">= 2.6"
